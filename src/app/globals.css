@@ -1,21 +1,5 @@
 @import 'tailwindcss';
 
-@font-face {
-    font-family: 'Sentient';
-    src: url('/Sentient-Extralight.woff') format('woff');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Sentient';
-    src: url('/Sentient-LightItalic.woff') format('woff');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
 :root {
     --background: #000000;
     --foreground: #ffffff;
@@ -72,9 +56,10 @@ body {
 #webgl {
     top: 0;
     left: 0;
-    position: fixed;
-    height: 100svh;
+    position: absolute;
+    height: 100%;
     width: 100%;
+    z-index: 0;
 }
 
 #webgl canvas {

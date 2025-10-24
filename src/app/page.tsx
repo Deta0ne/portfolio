@@ -7,6 +7,17 @@ export default function Home() {
         <>
             <Hero />
             <Leva hidden />
+            <div className="text-white text-center text-4xl font-bold">
+                dsadasdadsadasds
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
         </>
     );
 }
