@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, JSX } from 'react';
 import { animate, inView, stagger } from 'motion';
 
 type RevealOnViewProps = {
@@ -60,15 +60,14 @@ export default function RevealOnView({
                 });
             }
 
-            animate(
-                targets,
-                { opacity: 1, transform: 'translateY(0) scale(1)', filter: 'blur(0px)' },
-                {
-                    duration: 0.95,
-                    delay: targets.length > 1 ? stagger(0.12, { start: delay }) : delay,
-                    easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
-                },
-            );
+            targets.forEach((target, index) => {
+                const delayTime = delay + (staggerChildren ? index * 0.12 : 0);
+                const options = { duration: 0.95, delay: delayTime, easing: [0.22, 1, 0.36, 1] };
+
+                animate(target, { opacity: 1 } as any, options);
+                animate(target, { transform: 'translateY(0) scale(1)' } as any, options);
+                animate(target, { filter: 'blur(0px)' } as any, options);
+            });
         });
 
         return () => cleanup();
